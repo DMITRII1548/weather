@@ -28,10 +28,14 @@ class ShowContorller extends Controller
     public function __invoke()
     {
         $import = new ImportWeatherDataClient;
-        $response = $import->client->request('GET', '?appid=' . $this->appid . '&lat=' . $this->lat . '&lon=' . $this->lon . '&units=');
+        $response = $import->client->request('GET', '?appid=' . $this->appid . '&lat=' . $this->lat . '&lon=' . $this->lon . '&units=' . $this->units);
         $data = json_decode($response->getBody()->getContents());
 
-        dd($data->main->temp - 270);
+        $temperature = $data->main->temp;
+        $weather = $data->weather[0]->main;
+        $windSpeed = $data->wind->speed;
+
+        return view('weather.show', compact('temperature', 'weather', 'windSpeed'));
     }
 
 }
