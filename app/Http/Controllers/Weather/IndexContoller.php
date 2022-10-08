@@ -11,7 +11,9 @@ class IndexContoller extends Controller
     
     public function __invoke()
     {
-        City::create();
+        $cities = City::all();
+        
+        return view('weather.index', compact('cities'));
     }
 
 }
