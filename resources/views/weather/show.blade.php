@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="{{ asset('css/app.css') }}">
+    @vite(['resources/js/app.js'])
     <title>Document</title>
 </head>
 <body>
-    <h1>Weather in Almaty Now:</h1>
+<div class="container">
+    <br>
+    <h1>Weather in {{ $city }} Now:</h1><br>
     <h3>Weather: {{ $weather }}</h3>
     <h3>Temperature: {{ $temperature }} °C</h3>
     <h3>Wind Speed: {{ $windSpeed }} m/s</h3>
+</div>    
 </body>
 </html>

@@ -11,9 +11,10 @@ class IndexContoller extends Controller
     
     public function __invoke()
     {
+        $number = 0;
         $cities = City::all();
         
-        return view('weather.index', compact('cities'));
+        return view('weather.index', compact('cities', 'number'));
     }
 
 }
