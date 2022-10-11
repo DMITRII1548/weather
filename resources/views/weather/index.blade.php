@@ -19,4 +19,10 @@
     @endforeach
   </table>
 </div>
+<div>
+  <span class="fst-italic fs-6 float-start">
+    If you didn't find your city. You can add its
+  </span>
+  <a href="#" class="btn btn-outline-primary bnt-lg float-end">Add</a>
+</div>
 @endsection
