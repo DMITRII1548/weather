@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\Weather\IndexContoller;
-use App\Http\Controllers\Weather\ShowContorller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,8 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/weather', IndexContoller::class)->name('weather.index');
-Route::get('/weather/{city}', ShowContorller::class)->name('weather.show');
+Route::group(['namespace' => 'App\Http\Controllers\Weather'], function() {
+    Route::get('/weather', 'IndexController')->name('weather.index');
+    Route::get('/weather/create', 'CreateController')->name('weather.create');
+    Route::post('/weather/store', 'StoreController')->name('weather.store');
+    //Route::get('/weather/{city}', 'ShowController')->name('weather.show');
+    
+});
 
 
 Auth::routes();

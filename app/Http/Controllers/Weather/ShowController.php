@@ -8,13 +8,12 @@ use App\Models\City;
 use App\Services\Weather\WeatherService;
 use Illuminate\Http\Request;
 
-class ShowContorller extends Controller
+class ShowController extends Controller
 {
 
-    public function __invoke($cityId)
+    public function __invoke(int $cityId)
     {
         $city = City::find($cityId);
-
         $weatherService = new WeatherService;
 
         $data = $weatherService->show($city);
