@@ -21,7 +21,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Weather'], function() {
     Route::get('/weather', 'IndexController')->name('weather.index');
     Route::get('/weather/create', 'CreateController')->name('weather.create');
     Route::post('/weather/store', 'StoreController')->name('weather.store');
-    //Route::get('/weather/{city}', 'ShowController')->name('weather.show');
+    Route::get('/weather/{city}', 'ShowController')->name('weather.show');
     
 });
 
