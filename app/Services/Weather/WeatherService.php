@@ -39,7 +39,17 @@ class WeatherService
 
     public function store(string $city)
     {
-        $this->isCityExist($city);
+        if ($this->isCityExist($city)) {
+
+            City::firstOrCreate([
+                'city' => $city,
+            ], [
+                'city' => $city,
+            ]);
+
+        } else {
+            return 'The City ' . $city . ' does not exits';
+        }
     }
 
     private function isCityExist(string $city)
@@ -48,13 +58,14 @@ class WeatherService
         $countryCode = 398;
         $response = $this->importGeocodingDataClient->client->request('GET', '?q=' . $city . ',' . $countryCode . '&limit=' . 1 . '&appid=' . $this->appid);
         $data = json_decode($response->getBody()->getContents());
-
+        
         if (!isset($data['0'])) {
-            //doesn't exist
-            
+            //doesn't exist 
+            return false;
+        } else if ($data[0]->country === "KZ") {
+            return true;
         } else {
-            //exist
-            dd(111);
+            return false;
         }
     }
 

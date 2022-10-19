@@ -1,6 +1,7 @@
 @extends('layouts.weather')
 
 @section('content')
+
 <div class="mt-4">
     <form action="{{ route('weather.store') }}" method="post">
     @csrf
@@ -12,4 +13,13 @@
         <button type="submit" class="btn btn-outline-primary mt-3">Create</button>
     </form>
 </div>
+
+@if ($message)
+    <script>
+        alert("{{ $message }}")
+    </script> 
+@else
+
+@endif
+
 @endsection

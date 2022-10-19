@@ -10,7 +10,9 @@ class CreateController extends BaseController
     
     public function __invoke()
     {
-        return view('weather.create');
+        $message = null;
+
+        return view('weather.create', compact('message'));
     }
 
 }

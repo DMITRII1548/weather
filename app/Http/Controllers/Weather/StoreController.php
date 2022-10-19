@@ -14,7 +14,13 @@ class StoreController extends BaseController
         $data = $request->validated();
         $city = $data['city'];
         
-        $this->service->store($city);
+        $message = $this->service->store($city);
+
+        if (!isset($message)) { 
+            return redirect()->route('weather.index');  
+        } else {
+            return view('weather.create', compact('message')); 
+        }
     }
 
 }
