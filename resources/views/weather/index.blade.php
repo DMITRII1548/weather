@@ -6,14 +6,16 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-          <th scope="col">City</th>
-            </tr>
-            </thead>
+        <th scope="col">City</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
     @foreach ($cities as $city)
       <tbody>
         <tr>
           <th scope="row">{{ ++$number }}</th>
           <td><a href="{{ route('weather.show', $city->id) }}">{{ $city->city }}</a></td>
+          <td><a href="{{ route('weather.destroy', $city) }}" class="btn btn-outline-danger">Delete</a></td>
         </tr>
       </tbody>
     @endforeach

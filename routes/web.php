@@ -22,7 +22,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Weather'], function() {
     Route::get('/weather/create', 'CreateController')->name('weather.create');
     Route::post('/weather/store', 'StoreController')->name('weather.store');
     Route::get('/weather/{city}', 'ShowController')->name('weather.show');
-    
+    Route::delete('/weather/{city}', 'DestroyController')->name('weather.destroy');
 });
 
 

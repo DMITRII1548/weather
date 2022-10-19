@@ -15,7 +15,7 @@ class ImportWeatherDataClient
             // Base URI is used with relative requests
             'base_uri' => 'https://api.openweathermap.org/data/2.5/weather',
             // You can set any number of default request options.
-            'timeout'  => 2.0,
+            'timeout'  => 5.0,
             'verify' => false,
         ]);
     }
