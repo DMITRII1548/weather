@@ -15,7 +15,13 @@
         <tr>
           <th scope="row">{{ ++$number }}</th>
           <td><a href="{{ route('weather.show', $city->id) }}">{{ $city->city }}</a></td>
-          <td><a href="{{ route('weather.destroy', $city) }}" class="btn btn-outline-danger">Delete</a></td>
+          <td>
+            <form action="{{ route('weather.destroy', $city) }}" method="POST">
+              @method('delete')
+              @csrf
+              <button type="submit" class="btn btn-outline-danger">Delete</button>
+            </form>
+          </td>
         </tr>
       </tbody>
     @endforeach

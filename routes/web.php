@@ -25,7 +25,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Weather'], function() {
     Route::delete('/weather/{city}', 'DestroyController')->name('weather.destroy');
 });
 
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
